@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc -b",
+    "build": "npx tsc -b && npm run copy:templates",
     "run:smsWorker": "node dist/worker/smsWorker",
     "run:emailWorker": "node dist/worker/emailWorker",
+    "copy:templates": "copyfiles -u 1 src/template/* dist/",
     "pm2": "npm run build && pm2-runtime start ecosystem.config.js"
   },
   "keywords": [],
@@ -20,11 +21,14 @@
     "bullmq": "^5.54.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "handlebars": "^4.7.8",
     "ioredis": "^5.6.1",
     "pm2": "^6.0.8",
-    "twilio": "^5.7.1"
+    "twilio": "^5.7.1",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
-    "@types/node": "^24.0.3"
+    "@types/node": "^24.0.3",
+    "copyfiles": "^2.4.1"
   }
 }
