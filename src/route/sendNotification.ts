@@ -3,6 +3,7 @@ import { renderTemplate } from "../utils/renderTemplates";
 import { smsQueue } from "../queue/smsQueue";
 import { emailQueue } from "../queue/emailQueue";
 import logger from "../utils/logger";
+import { rateLimit } from 'express-rate-limit'
 
 export const notification = express();
 notification.use(express.json());
@@ -25,6 +26,16 @@ interface NotificationJob2 {
     template?: "welcome";
 }
 
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, 
+    limit: 100, 
+    standardHeaders: 'draft-8', 
+    legacyHeaders: false, 
+})
+
+
+notification.use(limiter)
 notification.post("/addJob", async (req: Request, res: Response) => {
     const { type, to, subject, message, isPriority, template }: NotificationJob = req.body;
 

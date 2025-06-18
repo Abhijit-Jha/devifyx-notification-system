@@ -1,8 +1,8 @@
 import { Worker, Job } from "bullmq";
 import { connection } from "../redis/redis";
 import { sendEmail } from "../utils/emailService";
-import logger from "../utils/logger"; // ✅ Winston
-
+import logger from "../utils/logger";
+import dotenv from 'dotenv'
 interface EmailJobData {
     to: string;
     from?: string;
@@ -21,7 +21,7 @@ export const emailWorker = new Worker(
 
             const response = await sendEmail(
                 to,
-                from || 'abhijeetjha913@gmail.com',
+                from || process.env.SENDGRID_FROM!,
                 subject,
                 text,
                 html
