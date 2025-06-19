@@ -215,3 +215,32 @@ Currently supported templates:
 - `info` - Successful operations
 - `warn` - Validation failures
 - `error` - System errors and API failures
+
+
+# How AI Helped Me in This Project
+
+### 1. Planning and Organizing Tasks
+- Task breakdown and prioritization
+- Timeline estimation
+- Milestone planning
+- Risk assessment
+
+### 2. Writing Logs (Winston)
+- Logger configuration setup
+- Structured logging formats
+
+### 3. Code Structure
+- File organization and architecture
+- Design pattern implementation
+- Code modularity
+- Error handling patterns
+
+### 4. Writing README File
+- Documentation structure
+- Installation guides
+- Usage examples
+- API documentation
+
+### 5. Automating Boring Tasks
+- Boilerplate code generation
+- Structuring the code
