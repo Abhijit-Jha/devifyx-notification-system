@@ -1,4 +1,4 @@
-# 🚀 DevifyX Async Notification System
+# 🚀 Async Notification System
 
 A scalable, asynchronous **Notification Service** built in **Node.js** with **TypeScript** that handles background **Email and SMS** notifications reliably using queues, monitoring, and comprehensive logging.
 
